@@ -114,7 +114,7 @@ do
             #下载最新的go版本
             gourl=$(curl -s  https://studygolang.com/dl |  sed -n '/dl\/golang\/go.*\.linux-armv6l\.tar\.gz/p' | sed -n '1p' | sed -n '/1/p' | awk 'BEGIN{FS="\""}{print $4}')
             goweb="https://studygolang.com"
-            gourl="${goweb}${gourl}"
+            gourl="${goweb}/${gourl}"
             #防止已经下载过
             if [ ! -f "$(ls | grep linux-armv6l.tar.gz | sed -n '1p')" ]; then
                 wget $gourl
